@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/* 背景 
+--------------------------------------*/ 
+body {
+    background-color: rgb(146, 253, 97);
+   
+}
+
+/* 飲み会画像 
+--------------------------------------*/ 
+#nomikai{
+    width: 500px;
+    height: auto;
+    margin-left: auto;
+}
+
+/* カードの大きさ 
+--------------------------------------*/ 
+#uramen {
+    width: 200px;
+    height: auto;
+}
+
+/* トランプ結果のテキストの場所 */ 
+#sekizyun p {
+    text-align: left;
+    height: 0%;
+    display: flex-end;
+
+}
+/*  セクション並び替え
+-----------------------------------------*/
+section {
+    display: flex;
+}

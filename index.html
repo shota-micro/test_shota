@@ -1,0 +1,77 @@
+<!doctype html><!-- -->
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>トランプ席替え</title>
+    <link href="../images/favicon.ico" rel="shortcut icon">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- ここからjQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+    </script>
+    <!-- ここまでjQuery -->
+    <!-- ここからcss -->
+    <style>
+        /**/
+    </style>
+    <!-- ここまでcss -->
+</head>
+
+<body>
+    <h1>トランプで席替えしよう！！</h1>
+    <section>
+        <div>
+            <img src="images/nomikai.png" id="nomikai" alt="飲み会">
+        </div>
+        <div>
+            <img src="images/card_back.png" id="uramen" alt="カード裏面">
+        </div>
+        <div id="sekizyun">
+            時計回りで
+            <p id="text"></p>
+
+        </div>
+    </section>
+
+    <!-- ここからjavascript -->
+    <script src="js/script.js"></script>
+    <script>
+        'use strict';
+
+        //クリック時のトランプ絵柄変更とクリック回数カウント
+        //function外で記述しないと繰り返してしまうためここ
+        let num = 1;
+        //トランプの一覧
+        let kuzi = [];
+        for (let i = 1; i <= 13; i++) {
+            kuzi.push(i);
+        }
+        function shuffleArray(inputArray) {
+            inputArray.sort(() => Math.random() - 0.5);
+        };//並び替え
+
+        shuffleArray(kuzi);//ファンクション呼び出し
+
+        $("#uramen").click(function () {
+            if (num <= 13) {
+                let tramp = "images/card_spade_" + kuzi[num - 1] + ".png";//1~13のトランプ指定
+                $("#uramen").attr("src", tramp);//トランプの表示を変える
+                $("#text").append(num + "番に引いた人は" + kuzi[num - 1] + "番目の席です。<br>");//結果参照して文章で書き換えている
+                num++;//試行回数を追加
+            } else if (num = 14) { //14回目以降引いたら "これ以上はくじ引きできません" と ジョーカーのトランプ がでてくるようにする
+                let tramp = "images/card_joker.png";//ジョーカーのトランプ指定
+                $("#uramen").attr("src", tramp);//トランプの表示を変える
+                $("#text").append("これ以上はくじ引きできません。<br>");//文章で書き換えている)
+            } else {
+                return falese;
+            }
+        });
+    </script>
+    <!-- ここまでjavascript -->
+</body>
+
+</html><!-- -->
